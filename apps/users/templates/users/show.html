@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ user.username }}</title>
+</head>
+<body>
+
+    <a href="/books">Home</a>
+    <a href="/books/new">Add Book and Review</a>
+    <a href="/logout">Logout</a>
+
+    <h2>Username: {{ user.username }}</h2>
+    <h5>Name: {{ user.name }}</h5>
+    <h5>Email: {{ user.email }}</h5>
+    <h5>Total Reviews: {{ total_reviews }}</h5>
+
+    <h5>Posted reviews on the following books:</h5>
+    {% for review in reviews %}
+        <p><a href="/books/show/{{ review.book.id }}">{{ review.book.title }}</a></p>
+    {% endfor %}
+    
+</body>
+</html>
